@@ -1,0 +1,101 @@
+ #include <iostream.h>
+ 
+using namespace std;
+class luas_bangun_datar
+{
+public: 
+       float luas;
+       void cetak_luasbangun();
+       float hitung_luasbangun();
+       void set_isi();
+};
+void luas_bangun_datar::cetak_luasbangun()
+
+{
+       cout<<"Luas Bangun adalah = "<<luas<<endl;
+}
+
+class segitiga:public luas_bangun_datar
+{
+private:
+       float alas;
+       float tinggi;
+public:
+       void segitiga::set_isi()
+       {
+              cout<<"Perhitungan Luas Segitiga \n";
+              cout<<"Alas = ";
+              cin>>alas;
+              cout<<"Tinggi = ";
+              cin>>tinggi;
+       }
+       float segitiga::hitung_luasbangun()
+       {
+              luas=0.5*alas*tinggi;
+              return luas;
+       }
+};
+class lingkaran:public luas_bangun_datar
+{
+private:
+       float pi;
+       float r;
+public:
+       void lingkaran::set_isi()
+       {
+              cout<<"Perhitungan Luas Lingkaran \n";
+              cout<<"Jari-jari : ";
+              cin>>r;
+       }
+       float lingkaran::hitung_luasbangun()
+              
+       {
+              pi=3.14;
+              luas=pi*r*r;
+              return luas;
+       }
+};
+int main()
+{
+       int pil;
+       cout<<"Nama: Marianus Tri Angelo\n";
+       cout<<"NIM :17.11.1656\n";
+       cout<<"---------------------------\n";
+       cout<<"Masukkan pilihan perhitungan Luas Bangun Datar:\n";
+       cout<<"1. Segitiga\n";
+       cout<<"2. Lingkaran\n";
+       cout<<"==================================\n";
+       cin>>pil;
+       switch (pil)
+       {
+       case 1:
+              {
+                     segitiga s;
+                     
+                     s.set_isi();
+                     
+                     s.hitung_luasbangun();
+                     
+                     s.cetak_luasbangun();
+                    
+                     break;
+              }
+       case 2:
+              {
+                     lingkaran l;
+                     l.set_isi();
+                     
+                     l.hitung_luasbangun();
+                  
+                     l.cetak_luasbangun();
+                    
+                     break;
+              }
+       default:
+              cout<<"Pilihan Tidak Tersedia.";
+              break;
+       }
+    
+       return 0;
+	   
+}
